@@ -1,0 +1,3 @@
+<p><strong><%= @comment.commenter %></strong> прокоментував(ла) «<%= @comment.article.title %>»:</p>
+<blockquote><%= @comment.body %></blockquote>
+<p><%= link_to "Відкрити статтю", article_url(@comment.article) %></p>

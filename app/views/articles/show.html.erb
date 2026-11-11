@@ -1,0 +1,14 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<p>
+  <%= link_to "Редагувати", edit_article_path(@article) %> |
+  <%= button_to "Видалити", @article, method: :delete, form: { data: { turbo_confirm: "Точно?" } } %>
+</p>
+<h2>Коментарі</h2>
+<%= turbo_frame_tag "comments" do %>
+  <% @article.comments.each do |c| %>
+    <%= render "comments/comment", comment: c %>
+  <% end %>
+<% end %>
+<%= render "comments/form", article: @article %>
+<%= link_to "← Усі статті", root_path %>

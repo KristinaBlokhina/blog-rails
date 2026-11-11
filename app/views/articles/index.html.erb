@@ -1,0 +1,16 @@
+<h1>Мій Rails-блог</h1>
+
+<section>
+  <h2>Як створювався проект</h2>
+  <video controls width="720" preload="metadata" poster="/setup-poster.png">
+    <source src="/setup.mp4" type="video/mp4">
+    Ваш браузер не підтримує відео.
+  </video>
+</section>
+
+<%= link_to "Нова стаття", new_article_path, data: { turbo_frame: "_top" } %>
+<ul>
+  <% @articles.each do |article| %>
+    <li><%= link_to article.title, article %></li>
+  <% end %>
+</ul>
